@@ -5,23 +5,162 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+      body {
+        background-color: aqua;
+      }
+      #para1 {
+        display: none;
+      }
+      #div1, #div2, #div3 {
+        display: none;
+        margin-left: 10rem;
+      }
+      #demo {
+        border: 2px solid red;
+        width: 40rem;
+        margin-top: 4rem;
+        margin-left: 25rem;
+        height: 30rem;
+        background-color: darkslategray;
+      }
+      .audioone, .audiotwo, .audiothree {
+      
+        background-color: blueviolet;
+        
+        margin-left: 11rem;
+        margin-top: 19rem;
+        border-radius: 20px 20px 20px 20px;
+      }
+      h1 {
+        position: absolute;
+        bottom: 23rem;
+        padding-left: 11rem;
+        color: aliceblue;
+      }
+      .demo1 {
+        display: flex;
+        position: absolute;
+        left: 41rem;
+        top: 35rem;
+        flex-direction: row;
+        gap: 35px;
+        font-size: 30px;
+      }
+      .fa {
+        font-size: 40px;
+      }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <input type="text" id="input" required>
-    <div class="div1">
-    <div><h1>hello</h1></div>
-    <div><h1>are you tyre</h1></div>
+    <div><h2>MUSIC PLAYLIST</h2></div>
+    <div id="demo">
+      
+        
     </div>
+   <div class="demo1"> 
+    <i class="fa fa-backward" onclick="myFunctions()"></i>
+    <i id="icon" class="fa fa-play" onclick="plays()" ondblclick="pause()"></i>
+    <i class="fa fa-forward" onclick="myFunction()"></i>
+  </div>
+    <div id="div1">
+      <h1>ASAKE:OMO OPE</h1>
+<audio class="audioone" controls   src="asakeomoope.mp3"></audio>
+    </div>
+    <div id="div2">
+      <h1>OLAMIDE Rock</h1>
+<audio class="audiotwo" src="olamide.mp3" controls autoplay></audio>
+    </div>
+    <div id="div3">
+      <h1>OLAMIDE AND ZEEZ Atewo</h1>
+      <audio controls class="audiothree" src="atewo.mp3" autoplay></audio>
+    </div>
+    
+    <p id="para1"></p>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        $(function(){
-            $("#input").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $(".div1 h1").filter(function() {
-    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                });
-            });
-        })
+        var d = 0;
+      function myFunction() {
+        d +=1;
+document.getElementById("para1").innerHTML = d
+let a = document.querySelector("#div1").innerHTML;
+let l = document.getElementById("demo");
+let c  =  document.querySelector("#div2").innerHTML;
+let o = document.querySelector("#div3").innerHTML;
+let h = document.getElementById("icon");
+
+if (d == 1) {
+l.innerHTML = a;
+} if ( d == 2) {
+  h.className = "fa fa-play";
+l.innerHTML = c
+} if (d == 3) {
+  h.className = "fa fa-play";
+  l.innerHTML = o;
+}
+      }
+      function myFunctions() {
+        d--;
+document.getElementById("para1").innerHTML = d
+let a = document.querySelector("#div1").innerHTML;
+let l = document.getElementById("demo");
+let c  =  document.querySelector("#div2").innerHTML;
+let h = document.getElementById("icon");
+if (d == 1) {
+l.innerHTML = a;
+h.className = "fa fa-play";
+} if(d ==2) {
+  h.className = "fa fa-play";
+  l.innerHTML = c;
+}
+      }
+      function plays() {
+        let n = document.querySelector(".audioone");
+        let j  =  document.querySelector(".audiotwo");
+        let v = document.querySelector(".audiothree");
+        document.getElementById("para1").innerHTML = d
+        let k = document.getElementById("icon");
+        if (d == 1 && k.className == "fa fa-play") {
+          k.className = "fa fa-pause";
+          n.play()
+        } if (d == 2) {
+          k.className = "fa fa-pause";
+        
+              j.play()
+        } if (d == 3) {
+          k.className = "fa fa-pause";
+          
+          v.play()
+        }
+      }
+      function pause() {
+        let n = document.querySelector(".audioone");
+        let j  =  document.querySelector(".audiotwo");
+        let v = document.querySelector(".audiothree");
+        document.getElementById("para1").innerHTML = d
+        let k = document.getElementById("icon");
+        if(d == 1 && k.className == "fa fa-pause"){
+          k.className = "fa fa-play";
+          n.pause();
+        } if (d == 2) {
+          k.className = "fa fa-play";
+        
+              j.pause()
+        } if (d == 3) {
+          k.className = "fa fa-play";
+          
+          v.pause()
+        }
+      }
+      let text = "";
+      let n = document.querySelector(".audioone");
+        let j  =  document.querySelector(".audiotwo");
+        let v = document.querySelector(".audiothree");
+        for(let i = 0; i < n.length; i++) {
+          text += [i];
+        }
     </script>
 </body>
 </html>
