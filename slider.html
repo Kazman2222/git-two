@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #hello {
+            height: 35rem;
+            width: 100rem;
+         
+            border: 2px transparent red;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            
+        
+        }
+        .goat1 {
+            height: 25rem;
+        }
+        img {
+           height: 35rem;
+           width: 99rem;
+        }
+        #div1, #div2, #div3 {
+            display: none;
+        }
+    @media only screen and (max-width: 768px) {
+        #hello {
+            height: 35rem;
+            width: 30rem;
+         
+            border: 2px transparent red;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            
+        
+        }
+        img {
+           height: 35rem;
+           width: 30rem;
+        }
+    }
+    
+        
+    </style>
+</head>
+<body>
+    <div id="hello"></div>
+<div id="div1">
+    <img class="image1" src="goat.webp" alt="">
+</div>
+<div id="div2">
+    <img src="goat2.jpg" alt="">
+</div>
+<div id="div3">
+    <img src="horse-farm2_800.jpg" alt="">
+</div>
+
+
+
+    <script>
+    setInterval(myFunction, 3000)
+    setInterval(myFunctions, 6000)
+    setInterval(nameName, 9000)
+    
+function myFunction() {
+let z = document.getElementById("hello");
+let d = document.getElementById("div1").innerHTML;
+z.innerHTML = d;
+
+
+}
+function nameName() {
+    let z = document.getElementById("hello");
+    let d = document.getElementById("div2").innerHTML;
+z.innerHTML = d;
+}
+function myFunctions() {
+let z = document.getElementById("hello");
+let d = document.getElementById("div3").innerHTML;
+z.innerHTML = d;
+}
+
+    </script>
+</body>
+</html>
